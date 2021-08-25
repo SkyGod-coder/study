@@ -1,5 +1,12 @@
 package me.skygod.reflect;
 
+/**
+ * 演示
+ *
+ * @since 1.5
+ * @version 1.0
+ * @author SkyGod
+ */
 public class Person {
     private String name;
     private int age;
@@ -41,6 +48,11 @@ public class Person {
     private void eat(){
         System.out.println("eat...");
     }
+
+    /**
+     * “人“” 吃” 方法
+     * @param food 要吃的食物
+     */
     private void eat(String food){
         System.out.println("eat " + food);
     }
