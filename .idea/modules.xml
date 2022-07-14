@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GcTest/GcTest.iml" filepath="$PROJECT_DIR$/GcTest/GcTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/heima/heima.iml" filepath="$PROJECT_DIR$/heima/heima.iml" />
-      <module fileurl="file://$PROJECT_DIR$/show/show.iml" filepath="$PROJECT_DIR$/show/show.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sequencing/sequencing.iml" filepath="$PROJECT_DIR$/sequencing/sequencing.iml" />
       <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
       <module fileurl="file://$PROJECT_DIR$/studySwing/studySwing.iml" filepath="$PROJECT_DIR$/studySwing/studySwing.iml" />
     </modules>

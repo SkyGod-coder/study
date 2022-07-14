@@ -15,7 +15,7 @@ import java.net.URLConnection;
 public class JsonManager {
     private static URL url;
     static{
-        try {
+try {
             url = new URL("https://api.lolicon.app/setu/v2");
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class JsonManager {
             //打开输入
             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             //一行数据
-            String inputLine = null;
+            String inputLine;
             while((inputLine = in.readLine()) != null){
                 //将一行数据追加
                 stringBuilder.append(inputLine);
