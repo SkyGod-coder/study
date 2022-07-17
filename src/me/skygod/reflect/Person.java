@@ -1,5 +1,7 @@
 package me.skygod.reflect;
 
+import java.util.Objects;
+
 /**
  * бнЪО
  *
@@ -47,6 +49,22 @@ public class Person {
 
     private void eat(){
         System.out.println("eat...");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getAge() == person.getAge() &&
+                Objects.equals(getName(), person.getName()) &&
+                Objects.equals(b, person.b) &&
+                Objects.equals(a, person.a);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAge(), b, a);
     }
 
     /**
