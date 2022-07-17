@@ -8,6 +8,7 @@ public class Controller {
      * 存储所有的账户对象
      */
     private static ArrayList<Account> accounts = new ArrayList<>();
+    private static final Scanner scanner = Main.getScanner();
 
     /**
      * 重复查询
@@ -26,7 +27,6 @@ public class Controller {
      * 开户
      */
     public static void creatAccount() {
-        Scanner scanner = Main.getScanner();
         while (true) {
             System.out.println("===开户===");
             System.out.println("请输入姓名；(键入exit可退出注册界面)");
@@ -70,7 +70,6 @@ public class Controller {
      * 登陆
      */
     public static void login() {
-        Scanner scanner = Main.getScanner();
         System.out.println("===登陆===");
         Account account;
         while (true) {
@@ -155,34 +154,38 @@ public class Controller {
      * @param account 欲修改密码的账户
      */
     public static void change(Account account){
-        Scanner scanner = Main.getScanner();
-        System.out.println("输入原来的密码以确认:");
-        String password = scanner.next();
-        String oldPassword = account.getPassword();
-        if(password.equalsIgnoreCase(oldPassword)){
-            System.out.println("密码错误");
-            return;
-        }
+        if (!verifyPassword(account)) return;
         System.out.println("请输入新的密码:");
-        password = scanner.next();
+        String password = scanner.next();
         account.setPassword(password);
         System.out.println("修改成功");
     }
 
     /**
      * 注销
+     *
      * @param account 欲注销的账户
      */
-    public static void logout(Account account){
-        Scanner scanner = Main.getScanner();
-        System.out.println("输入原来的密码以确认:");
-        String password = scanner.next();
-        String oldPassword = account.getPassword();
-        if(password.equalsIgnoreCase(oldPassword)){
-            System.out.println("密码错误");
-            return;
-        }
+    public static void logout(Account account) {
+        if (!verifyPassword(account)) return;
         accounts.remove(account);
         System.out.println("注销成功");
+    }
+
+    /**
+     * 验证密码
+     *
+     * @param account 账户
+     * @return 如果输入了正确的密码，则返回true，否则返回false
+     */
+    private static Boolean verifyPassword(Account account) {
+        System.out.println("输入密码以确认:");
+        String password = scanner.next();
+        String oldPassword = account.getPassword();
+        if (!password.equalsIgnoreCase(oldPassword)) {
+            System.out.println("密码错误");
+            return false;
+        }
+        return true;
     }
 }

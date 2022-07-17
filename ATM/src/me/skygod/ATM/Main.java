@@ -103,7 +103,7 @@ public class Main {
                     Controller.logout(account);
                     System.out.println("输入任意字符继续");
                     scanner.next();
-                    continue;
+                    break home;
                 default:
                     System.out.println("没有此指令");
 
