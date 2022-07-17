@@ -7,7 +7,7 @@ public class Controller {
     /**
      * 存储所有的账户对象
      */
-    private static ArrayList<Account> accounts = new ArrayList<>();
+    private static final ArrayList<Account> accounts = new ArrayList<>();
     private static final Scanner scanner = Main.getScanner();
 
     /**

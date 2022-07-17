@@ -11,13 +11,15 @@ public class Main {
 
     /**
      * main函数，初始界面
-     * @param args
+     *
+     * @param args main函数参数
      */
     public static void main(String[] args) {
         while (true) {
             System.out.println("===ATM===");
             System.out.println("1.登陆");
             System.out.println("2.开户");
+            System.out.println("3.退出");
             //Fix：（第50行同）Scanner#nextInt()获取 --> 先将获取到的String解析为long，再截取为int，可避免误输入导致的崩溃
             int command = (int)Long.parseLong(scanner.next());
             switch (command) {
@@ -29,6 +31,8 @@ public class Main {
                     System.out.println("输入任意字符继续");
                     scanner.next();
                     continue;
+                case 3:
+                    return;
                 default:
                     System.out.println("没有这个指令");
             }

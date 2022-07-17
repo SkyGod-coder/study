@@ -12,7 +12,7 @@ public class Account {
     private int money;
     private final int limit;
 
-    private ArrayList<String> log = new ArrayList<>();
+    private final ArrayList<String> log = new ArrayList<>();
 
     public Account(String name, long number, String password, int limit) {
         this.name = name;
