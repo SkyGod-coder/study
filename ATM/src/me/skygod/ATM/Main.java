@@ -18,7 +18,8 @@ public class Main {
             System.out.println("===ATM===");
             System.out.println("1.登陆");
             System.out.println("2.开户");
-            int command = scanner.nextInt();
+            //Fix：（第50行同）Scanner#nextInt()获取 --> 先将获取到的String解析为long，再截取为int，可避免误输入导致的崩溃
+            int command = (int)Long.parseLong(scanner.next());
             switch (command) {
                 case 1:
                     Controller.login();
@@ -46,7 +47,7 @@ public class Main {
             for (String s : commands) {
                 System.out.println(s);
             }
-            int command = scanner.nextInt();
+            int command = (int)Long.parseLong(scanner.next());
             switch (command) {
                 case 1:
                     System.out.println(account);
@@ -69,17 +70,23 @@ public class Main {
                     System.out.println("请输入对方的卡号");
                     String number = scanner.next();
                     if(number.equalsIgnoreCase(String.valueOf(account.getNumber()))){
-                        System.out.println("不能给自己转账");
+                        System.out.println("不能给自己转账\n输入任意字符继续");
+                        scanner.next();
                         continue;
                     }
                     Account accountIn = Controller.getAccount(number);
                     if(accountIn == null){
                         System.out.println("无效的卡号");
+                        continue;
                     }
                     String nameIn = accountIn.getName();
                     System.out.println("请输入对方的姓[*" + nameIn.substring(1) + "]");
                     String lastname = scanner.next();
-                    if(nameIn.startsWith(lastname))
+                    if(!nameIn.startsWith(lastname)){
+                        System.out.println("验证失败\n输入任意字符继续");
+                        scanner.next();
+                        continue;
+                    }
                     System.out.println("请输入转账的金额");
                     Controller.transfer(account,accountIn,scanner.nextInt());
                     System.out.println("输入任意字符继续");
