@@ -6,29 +6,31 @@ import java.util.ArrayList;
  * 账户对象
  */
 public class Account {
-    private String name;
-    private long number;
+    private final String name;
+    private final long number;
     private String password;
     private int money;
-    private int limit;
+    private final int limit;
 
     private ArrayList<String> log = new ArrayList<>();
-    public Account(String name,long number,String password,int limit){
+
+    public Account(String name, long number, String password, int limit) {
         this.name = name;
         this.number = number;
-        this.password =password;
+        this.password = password;
         this.limit = limit;
     }
 
     /**
      * 便于“查询”操作时调用
-     * @return
+     *
+     * @return 账户的详细信息
      */
     @Override
     public String toString() {
         StringBuilder logStringBuilder = new StringBuilder();
         for (String log : this.log){
-            logStringBuilder.append(log + "\n");
+            logStringBuilder.append(log).append("\n");
         }
         String logString = logStringBuilder.toString();
         return "===ATM===" + "\n" +
@@ -58,16 +60,9 @@ public class Account {
     public int getLimit() {
         return limit;
     }
+
     public ArrayList<String> getLog() {
         return log;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public void setPassword(String password) {
@@ -76,14 +71,6 @@ public class Account {
 
     public void setMoney(int money) {
         this.money = money;
-    }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
-
-    public void setLog(ArrayList<String> log) {
-        this.log = log;
     }
 
 }
