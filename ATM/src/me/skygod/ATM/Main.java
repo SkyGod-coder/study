@@ -2,6 +2,9 @@ package me.skygod.ATM;
 
 import java.util.Scanner;
 
+/**
+ * @author SkyGod
+ */
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
