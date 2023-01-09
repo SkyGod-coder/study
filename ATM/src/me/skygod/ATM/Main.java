@@ -13,106 +13,107 @@ public class Main {
     }
 
     /**
-     * mainº¯Êı£¬³õÊ¼½çÃæ
+     * mainå‡½æ•°ï¼Œåˆå§‹ç•Œé¢
      *
-     * @param args mainº¯Êı²ÎÊı
+     * @param args mainå‡½æ•°å‚æ•°
      */
     public static void main(String[] args) {
         while (true) {
             System.out.println("===ATM===");
-            System.out.println("1.µÇÂ½");
-            System.out.println("2.¿ª»§");
-            System.out.println("3.ÍË³ö");
-            //Fix£º£¨µÚ50ĞĞÍ¬£©Scanner#nextInt()»ñÈ¡ --> ÏÈ½«»ñÈ¡µ½µÄString½âÎöÎªlong£¬ÔÙ½ØÈ¡Îªint£¬¿É±ÜÃâÎóÊäÈëµ¼ÖÂµÄ±ÀÀ£
-            int command = (int)Long.parseLong(scanner.next());
+            System.out.println("1.ç™»é™†");
+            System.out.println("2.å¼€æˆ·");
+            System.out.println("3.é€€å‡º");
+            //Fixï¼šï¼ˆç¬¬57è¡ŒåŒï¼‰Scanner#nextInt()è·å– --> å…ˆå°†è·å–åˆ°çš„Stringè§£æä¸ºlongï¼Œå†æˆªå–ä¸ºintï¼Œå¯é¿å…è¯¯è¾“å…¥å¯¼è‡´çš„å´©æºƒ
+            int command = (int) Long.parseLong(scanner.next());
             switch (command) {
                 case 1:
                     Controller.login();
                     continue;
                 case 2:
                     Controller.creatAccount();
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 3:
                     return;
                 default:
-                    System.out.println("Ã»ÓĞÕâ¸öÖ¸Áî");
+                    System.out.println("æ²¡æœ‰è¿™ä¸ªæŒ‡ä»¤");
             }
         }
     }
 
     /**
-     * ÓÃ»§ÖĞĞÄ
-     * @param account µÇÈëµÄÓÃ»§£¨ÕË»§£©
+     * ç”¨æˆ·ä¸­å¿ƒ
+     *
+     * @param account ç™»å…¥çš„ç”¨æˆ·ï¼ˆè´¦æˆ·ï¼‰
      */
     public static void home(Account account) {
         home:
         while (true) {
-            System.out.println("===ÓÃ»§ÖĞĞÄ===");
-            String[] commands = {"1.²éÑ¯", "2.´æ¿î", "3.È¡¿î", "4.×ªÕË", "5.ĞŞ¸ÄÃÜÂë", "6.ÍË³ö", "7.×¢ÏúÕË»§"};
+            System.out.println("===ç”¨æˆ·ä¸­å¿ƒ===");
+            String[] commands = {"1.æŸ¥è¯¢", "2.å­˜æ¬¾", "3.å–æ¬¾", "4.è½¬è´¦", "5.ä¿®æ”¹å¯†ç ", "6.é€€å‡º", "7.æ³¨é”€è´¦æˆ·"};
             for (String s : commands) {
                 System.out.println(s);
             }
-            int command = (int)Long.parseLong(scanner.next());
+            int command = (int) Long.parseLong(scanner.next());
             switch (command) {
                 case 1:
                     System.out.println(account);
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 2:
-                    System.out.println("ÇëÊäÈëÒª´æ¿îµÄ½ğ¶î");
-                    Controller.save(account,scanner.nextInt());
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¯·è¾“å…¥è¦å­˜æ¬¾çš„é‡‘é¢");
+                    Controller.save(account, scanner.nextInt());
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 3:
-                    System.out.println("ÇëÊäÈëÒªÈ¡¿îµÄ½ğ¶î");
-                    Controller.withdraw(account,scanner.nextInt());
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¯·è¾“å…¥è¦å–æ¬¾çš„é‡‘é¢");
+                    Controller.withdraw(account, scanner.nextInt());
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 4:
-                    System.out.println("ÇëÊäÈë¶Ô·½µÄ¿¨ºÅ");
+                    System.out.println("è¯·è¾“å…¥å¯¹æ–¹çš„å¡å·");
                     String number = scanner.next();
                     if(number.equalsIgnoreCase(String.valueOf(account.getNumber()))){
-                        System.out.println("²»ÄÜ¸ø×Ô¼º×ªÕË\nÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                        System.out.println("ä¸èƒ½ç»™è‡ªå·±è½¬è´¦\nè¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                         scanner.next();
                         continue;
                     }
                     Account accountIn = Controller.getAccount(number);
                     if(accountIn == null){
-                        System.out.println("ÎŞĞ§µÄ¿¨ºÅ");
+                        System.out.println("æ— æ•ˆçš„å¡å·");
                         continue;
                     }
                     String nameIn = accountIn.getName();
-                    System.out.println("ÇëÊäÈë¶Ô·½µÄĞÕ[*" + nameIn.substring(1) + "]");
+                    System.out.println("è¯·è¾“å…¥å¯¹æ–¹çš„å§“[*" + nameIn.substring(1) + "]");
                     String lastname = scanner.next();
                     if(!nameIn.startsWith(lastname)){
-                        System.out.println("ÑéÖ¤Ê§°Ü\nÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                        System.out.println("éªŒè¯å¤±è´¥\nè¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                         scanner.next();
                         continue;
                     }
-                    System.out.println("ÇëÊäÈë×ªÕËµÄ½ğ¶î");
-                    Controller.transfer(account,accountIn,scanner.nextInt());
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¯·è¾“å…¥è½¬è´¦çš„é‡‘é¢");
+                    Controller.transfer(account, accountIn, scanner.nextInt());
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 5:
                     Controller.change(account);
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     continue;
                 case 6:
                     break home;
                 case 7:
                     Controller.logout(account);
-                    System.out.println("ÊäÈëÈÎÒâ×Ö·û¼ÌĞø");
+                    System.out.println("è¾“å…¥ä»»æ„å­—ç¬¦ç»§ç»­");
                     scanner.next();
                     break home;
                 default:
-                    System.out.println("Ã»ÓĞ´ËÖ¸Áî");
+                    System.out.println("æ²¡æœ‰æ­¤æŒ‡ä»¤");
 
             }
         }

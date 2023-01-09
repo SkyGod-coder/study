@@ -3,7 +3,7 @@ package me.skygod.ATM;
 import java.util.ArrayList;
 
 /**
- * ÕË»§¶ÔÏó
+ * è´¦æˆ·å¯¹è±¡
  */
 public class Account {
     private final String name;
@@ -22,9 +22,9 @@ public class Account {
     }
 
     /**
-     * ±ãÓÚ¡°²éÑ¯¡±²Ù×÷Ê±µ÷ÓÃ
+     * ä¾¿äºâ€œæŸ¥è¯¢â€æ“ä½œæ—¶è°ƒç”¨
      *
-     * @return ÕË»§µÄÏêÏ¸ĞÅÏ¢
+     * @return è´¦æˆ·çš„è¯¦ç»†ä¿¡æ¯
      */
     @Override
     public String toString() {
@@ -34,10 +34,10 @@ public class Account {
         }
         String logString = logStringBuilder.toString();
         return "===ATM===" + "\n" +
-                "ÄúºÃ," + name + ",ÄúµÄÕË»§µ±Ç°ĞÅÏ¢ÈçÏÂ" + "\n" +
-                "Óà¶î:" + money + "\n" +
-                "µ¥´ÎÏŞ¶î:" + limit + "\n" +
-                "===²Ù×÷¼ÇÂ¼===" + "\n" +
+                "æ‚¨å¥½," + name + ",æ‚¨çš„è´¦æˆ·å½“å‰ä¿¡æ¯å¦‚ä¸‹" + "\n" +
+                "ä½™é¢:" + money + "\n" +
+                "å•æ¬¡é™é¢:" + limit + "\n" +
+                "===æ“ä½œè®°å½•===" + "\n" +
                 logString;
     }
 

@@ -5,185 +5,198 @@ import java.util.Scanner;
 
 public class Controller {
     /**
-     * ´æ´¢ËùÓĞµÄÕË»§¶ÔÏó
+     * å­˜å‚¨æ‰€æœ‰çš„è´¦æˆ·å¯¹è±¡
      */
     private static final ArrayList<Account> accounts = new ArrayList<>();
     private static final Scanner scanner = Main.getScanner();
 
     /**
-     * ÖØ¸´²éÑ¯
+     * é‡å¤æŸ¥è¯¢
      *
-     * @param name ĞÕÃû
-     * @return Í¬Ò»ÈËÊÇ·ñÖØ¸´¿ª»§, ÊÇÎªtrue, ·ñÎªfalse
+     * @param name å§“å
+     * @return åŒä¸€äººæ˜¯å¦é‡å¤å¼€æˆ·, æ˜¯ä¸ºtrue, å¦ä¸ºfalse
      */
     private static Boolean containName(String name) {
         for (Account account : accounts) {
-            if (name.equalsIgnoreCase(account.getName())) return true;
+            if (name.equalsIgnoreCase(account.getName())) {
+                return true;
+            }
         }
         return false;
     }
 
     /**
-     * ¿ª»§
+     * å¼€æˆ·
      */
     public static void creatAccount() {
         while (true) {
-            System.out.println("===¿ª»§===");
-            System.out.println("ÇëÊäÈëĞÕÃû£»(¼üÈëexit¿ÉÍË³ö×¢²á½çÃæ)");
+            System.out.println("===å¼€æˆ·===");
+            System.out.println("è¯·è¾“å…¥å§“åï¼›(é”®å…¥exitå¯é€€å‡ºæ³¨å†Œç•Œé¢)");
             String name = scanner.next();
-            if (name.equalsIgnoreCase("exit")) break;
+            if (name.equalsIgnoreCase("exit")) {
+                break;
+            }
             if (containName(name)) {
-                System.out.println("ÄúµÄÃûÏÂÒÑ¾­ÓĞÒ»¸öÕË»§ÁË");
+                System.out.println("æ‚¨çš„åä¸‹å·²ç»æœ‰ä¸€ä¸ªè´¦æˆ·äº†");
                 continue;
             }
-            System.out.println("ÇëÊäÈëÃÜÂë:");
+            System.out.println("è¯·è¾“å…¥å¯†ç :");
             String password = scanner.next();
-            System.out.println("ÇëÈ·ÈÏÃÜÂë:");
+            System.out.println("è¯·ç¡®è®¤å¯†ç :");
             String confirmPassword = scanner.next();
             if (!confirmPassword.equalsIgnoreCase(password)) {
-                System.out.println("Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ");
+                System.out.println("ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´");
                 continue;
             }
-            System.out.println("ÊäÈë´ËÕË»§µÄµ¥´ÎÈ¡¿îÏŞ¶î:");
+            System.out.println("è¾“å…¥æ­¤è´¦æˆ·çš„å•æ¬¡å–æ¬¾é™é¢:");
             long number = System.currentTimeMillis();
             accounts.add(new Account(name, number, password, scanner.nextInt()));
-            System.out.println("===¿ª»§Íê³É===");
-            System.out.println("Çë¼Ç×¡ÄúµÄ¿¨ºÅ:" + number);
+            System.out.println("===å¼€æˆ·å®Œæˆ===");
+            System.out.println("è¯·è®°ä½æ‚¨çš„å¡å·:" + number);
             break;
         }
     }
 
     /**
-     * ¸ù¾İ¿¨ºÅ»ñÈ¡ÕË»§
+     * æ ¹æ®å¡å·è·å–è´¦æˆ·
      *
-     * @param number ¿¨ºÅ
-     * @return ÓĞÔò·µ»ØAccount£¬Ã»ÓĞÔò·µ»Ønull
+     * @param number å¡å·
+     * @return æœ‰åˆ™è¿”å›Accountï¼Œæ²¡æœ‰åˆ™è¿”å›null
      */
     public static Account getAccount(String number) {
         for (Account account : accounts) {
-            if (number.equalsIgnoreCase(String.valueOf(account.getNumber()))) return account;
+            if (number.equalsIgnoreCase(String.valueOf(account.getNumber()))) {
+                return account;
+            }
         }
         return null;
     }
 
     /**
-     * µÇÂ½
+     * ç™»é™†
      */
     public static void login() {
-        System.out.println("===µÇÂ½===");
+        System.out.println("===ç™»é™†===");
         Account account;
         while (true) {
-            System.out.println("ÇëÊäÈë¿¨ºÅ:(ÊäÈëexitÍË³öµÇÂ½½çÃæ)");
+            System.out.println("è¯·è¾“å…¥å¡å·:(è¾“å…¥exité€€å‡ºç™»é™†ç•Œé¢)");
             String number = scanner.next();
-            if (number.equalsIgnoreCase("exit")) return;
+            if (number.equalsIgnoreCase("exit")) {
+                return;
+            }
             account = getAccount(number);
             if (account == null) {
-                System.out.println("ÎŞĞ§µÄ¿¨ºÅ");
+                System.out.println("æ— æ•ˆçš„å¡å·");
                 continue;
             }
-            System.out.println("ÇëÊäÈëÃÜÂë:");
+            System.out.println("è¯·è¾“å…¥å¯†ç :");
             String password = scanner.next();
-            if (!account.getPassword().equalsIgnoreCase(password)){
-                System.out.println("ÃÜÂë´íÎó");
+            if (!account.getPassword().equalsIgnoreCase(password)) {
+                System.out.println("å¯†ç é”™è¯¯");
                 continue;
             }
-            System.out.println("===µÇÂ½Íê³É===");
+            System.out.println("===ç™»é™†å®Œæˆ===");
             break;
         }
         Main.home(account);
     }
 
     /**
-     * ÏòaccountÖĞ´æÈëmoneyÔª
+     * å‘accountä¸­å­˜å…¥moneyå…ƒ
      *
-     * @param account ÕË»§¶ÔÏó
-     * @param money   ½ğ¶î
+     * @param account è´¦æˆ·å¯¹è±¡
+     * @param money   é‡‘é¢
      */
     public static void save(Account account, int money) {
         int newMoney = account.getMoney() + money;
         account.setMoney(newMoney);
-        String message = "´æÈë" + money + "Ôª¡£" + "´æÈëºóÕË»§ÖĞÓĞ" + newMoney + "Ôª";
+        String message = "å­˜å…¥" + money + "å…ƒã€‚" + "å­˜å…¥åè´¦æˆ·ä¸­æœ‰" + newMoney + "å…ƒ";
         account.getLog().add(message);
         System.out.println(message);
     }
 
     /**
-     * ´ÓaccountÖĞÈ¡¿îmoneyÔª
-     * @param account ÕË»§
-     * @param money ½ğ¶î
+     * ä»accountä¸­å–æ¬¾moneyå…ƒ
+     *
+     * @param account è´¦æˆ·
+     * @param money   é‡‘é¢
      */
     public static void withdraw(Account account, int money){
         if(money > account.getLimit()){
-            System.out.println("³¬¹ıÁËµ¥´ÎÈ¡¿îÏŞ¶î");
+            System.out.println("è¶…è¿‡äº†å•æ¬¡å–æ¬¾é™é¢");
             return;
         }
         int moneyAccount = account.getMoney();
         if(money > moneyAccount){
-            System.out.println("Óà¶î²»×ã");
+            System.out.println("ä½™é¢ä¸è¶³");
         }else{
             int newMoney = moneyAccount - money;
             account.setMoney(newMoney);
-            String message = "È¡¿î" + money + "Íê±Ï¡£" + "È¡¿îºóÕË»§ÖĞÓĞ" + newMoney + "Ôª";
+            String message = "å–æ¬¾" + money + "å®Œæ¯•ã€‚" + "å–æ¬¾åè´¦æˆ·ä¸­æœ‰" + newMoney + "å…ƒ";
             account.getLog().add(message);
             System.out.println(message);
         }
     }
 
     /**
-     * ´ÓaccountOutÖĞ×ªÕËmoneyÔªµ½accountIn
+     * ä»accountOutä¸­è½¬è´¦moneyå…ƒåˆ°accountIn
      *
-     * @param accountOut ×ª³öÕË»§
-     * @param accountIn  ×ªÈëÕË»§
-     * @param money      ×ªÕË½ğ¶î
+     * @param accountOut è½¬å‡ºè´¦æˆ·
+     * @param accountIn  è½¬å…¥è´¦æˆ·
+     * @param money      è½¬è´¦é‡‘é¢
      */
     public static void transfer(Account accountOut, Account accountIn, int money) {
         int newMoney = accountOut.getMoney() - money;
         if(newMoney < 0){
-            System.out.println("Óà¶î²»×ã");
+            System.out.println("ä½™é¢ä¸è¶³");
         }else {
             accountOut.setMoney(newMoney);
             accountIn.setMoney(accountIn.getMoney() + money);
-            String message = "³É¹¦¸ø" + accountIn.getNumber() + "×ªÕË" + money + "Ôª¡£" + "×ªÕËºóÕË»§ÖĞÓĞ" + newMoney + "Ôª";
+            String message = "æˆåŠŸç»™" + accountIn.getNumber() + "è½¬è´¦" + money + "å…ƒã€‚" + "è½¬è´¦åè´¦æˆ·ä¸­æœ‰" + newMoney + "å…ƒ";
             System.out.println(message);
             accountOut.getLog().add(message);
         }
     }
 
     /**
-     * ĞŞ¸ÄÃÜÂë
-     * @param account ÓûĞŞ¸ÄÃÜÂëµÄÕË»§
+     * ä¿®æ”¹å¯†ç 
+     * @param account æ¬²ä¿®æ”¹å¯†ç çš„è´¦æˆ·
      */
-    public static void change(Account account){
-        if (!verifyPassword(account)) return;
-        System.out.println("ÇëÊäÈëĞÂµÄÃÜÂë:");
+    public static void change(Account account) {
+        if (!verifyPassword(account)) {
+            return;
+        }
+        System.out.println("è¯·è¾“å…¥æ–°çš„å¯†ç :");
         String password = scanner.next();
         account.setPassword(password);
-        System.out.println("ĞŞ¸Ä³É¹¦");
+        System.out.println("ä¿®æ”¹æˆåŠŸ");
     }
 
     /**
-     * ×¢Ïú
+     * æ³¨é”€
      *
-     * @param account Óû×¢ÏúµÄÕË»§
+     * @param account æ¬²æ³¨é”€çš„è´¦æˆ·
      */
     public static void logout(Account account) {
-        if (!verifyPassword(account)) return;
+        if (!verifyPassword(account)) {
+            return;
+        }
         accounts.remove(account);
-        System.out.println("×¢Ïú³É¹¦");
+        System.out.println("æ³¨é”€æˆåŠŸ");
     }
 
     /**
-     * ÑéÖ¤ÃÜÂë
+     * éªŒè¯å¯†ç 
      *
-     * @param account ÕË»§
-     * @return Èç¹ûÊäÈëÁËÕıÈ·µÄÃÜÂë£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param account è´¦æˆ·
+     * @return å¦‚æœè¾“å…¥äº†æ­£ç¡®çš„å¯†ç ï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      */
     private static Boolean verifyPassword(Account account) {
-        System.out.println("ÊäÈëÃÜÂëÒÔÈ·ÈÏ:");
+        System.out.println("è¾“å…¥å¯†ç ä»¥ç¡®è®¤:");
         String password = scanner.next();
         String oldPassword = account.getPassword();
         if (!password.equalsIgnoreCase(oldPassword)) {
-            System.out.println("ÃÜÂë´íÎó");
+            System.out.println("å¯†ç é”™è¯¯");
             return false;
         }
         return true;
