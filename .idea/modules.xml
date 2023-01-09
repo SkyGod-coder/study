@@ -4,12 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ATM/ATM.iml" filepath="$PROJECT_DIR$/ATM/ATM.iml" />
       <module fileurl="file://$PROJECT_DIR$/GcTest/GcTest.iml" filepath="$PROJECT_DIR$/GcTest/GcTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudySocket/StudySocket.iml" filepath="$PROJECT_DIR$/StudySocket/StudySocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/SwitchTest/SwitchTest.iml" filepath="$PROJECT_DIR$/SwitchTest/SwitchTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Type/Type.iml" filepath="$PROJECT_DIR$/Type/Type.iml" />
       <module fileurl="file://$PROJECT_DIR$/heima/heima.iml" filepath="$PROJECT_DIR$/heima/heima.iml" />
       <module fileurl="file://$PROJECT_DIR$/sequencing/sequencing.iml" filepath="$PROJECT_DIR$/sequencing/sequencing.iml" />
       <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
       <module fileurl="file://$PROJECT_DIR$/studySwing/studySwing.iml" filepath="$PROJECT_DIR$/studySwing/studySwing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>
 </project>

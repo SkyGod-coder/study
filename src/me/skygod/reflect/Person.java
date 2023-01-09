@@ -3,11 +3,11 @@ package me.skygod.reflect;
 import java.util.Objects;
 
 /**
- * ÑİÊ¾
+ * æ¼”ç¤º
  *
- * @since 1.5
- * @version 1.0
  * @author SkyGod
+ * @version 1.0
+ * @since 1.5
  */
 public class Person {
     private String name;
@@ -68,8 +68,9 @@ public class Person {
     }
 
     /**
-     * ¡°ÈË¡°¡± ³Ô¡± ·½·¨
-     * @param food Òª³ÔµÄÊ³Îï
+     * â€œäººâ€œâ€ åƒâ€ æ–¹æ³•
+     *
+     * @param food è¦åƒçš„é£Ÿç‰©
      */
     private void eat(String food){
         System.out.println("eat " + food);

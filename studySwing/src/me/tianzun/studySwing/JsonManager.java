@@ -40,10 +40,11 @@ try {
             stringJSON = stringBuilder.toString();
             in.close();
         } catch (IOException e) {
+            Main.setFlag(true);
             e.printStackTrace();
         }
         JSONObject mainJSON = JSON.parseObject(stringJSON);
         JSONArray data = mainJSON.getJSONArray("data");
-        return ((JSONObject)data.get(0)).getJSONObject("urls").getString("original").replace("i.pixiv.cat","i.pixiv.re");
+        return ((JSONObject) data.get(0)).getJSONObject("urls").getString("original");
     }
 }

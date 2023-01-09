@@ -12,7 +12,7 @@ import java.net.*;
 public class Window extends JFrame{
     private static String stringURL;
 
-    public static void setStringURL(String s) {
+    public void setStringURL(String s) {
         stringURL = s;
     }
 
@@ -23,20 +23,20 @@ public class Window extends JFrame{
 
     public Window(String title){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setStringURL(JsonManager.getURL());
-        loadPhoto();
         setTitle(title);
     }
 
-    public void reload(){
-        //先移除画布
-        remove(canvasPanel);
+    public void reload() {
         //修改标题
         setTitle("图片加载中...");
-        //重新获取随机图片直链
-        setStringURL(JsonManager.getURL());
-        //加载图片
-        loadPhoto();
+        while (Main.getFlag()) {
+            Main.setFlag(false);
+            //重新获取随机图片直链
+            setStringURL(JsonManager.getURL());
+            //加载图片
+            loadPhoto();
+        }
+        Main.setFlag(true);
         //修改标题
         setTitle("欣赏美图，心情愉悦");
     }
@@ -66,19 +66,27 @@ public class Window extends JFrame{
                 public void mousePressed(MouseEvent mouseEvent) {}
 
                 @Override
-                public void mouseReleased(MouseEvent mouseEvent) {}
+                public void mouseReleased(MouseEvent mouseEvent) {
+                }
 
                 @Override
-                public void mouseEntered(MouseEvent mouseEvent) {}
+                public void mouseEntered(MouseEvent mouseEvent) {
+                }
 
                 @Override
-                public void mouseExited(MouseEvent mouseEvent){}
+                public void mouseExited(MouseEvent mouseEvent) {
+                }
             });
+            //移除画布
+            if (canvasPanel != null) {
+                remove(canvasPanel);
+            }
             //将画布添加到窗口
             add(canvasPanel);
             //设置窗口大小与图片一直
-            setSize(width,height);
+            setSize(width, height);
         } catch (IOException e) {
+            Main.setFlag(true);
             e.printStackTrace();
         }
     }
